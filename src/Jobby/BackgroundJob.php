@@ -266,7 +266,8 @@ if (!debug_backtrace()) {
     if (file_exists('vendor/autoload.php')) {
         require('vendor/autoload.php');
     } else {
-        require(dirname(dirname(__DIR__)) . '/vendor/autoload.php');
+        $project_root = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+        require($project_root . '/vendor/autoload.php');
     }
 
     spl_autoload_register(function ($class) {
